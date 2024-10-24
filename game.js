@@ -87,23 +87,17 @@
    */
   function advanceTimer() {
     remainingSeconds--;
-
     if (remainingSeconds < 0) {
       clearInterval(timerId);
-      id("time").textContent = "00:00"; // Display 00:00 when time is up
-      return; // Exit the function if the time is up
+      id("time").textContent = "00:00";
+      return;
     }
 
-    // Calculate minutes and seconds
     const minutes = Math.floor(remainingSeconds / SECONDS_IN_MINUTE);
     const seconds = remainingSeconds % SECONDS_IN_MINUTE;
-
-    // Format minutes and seconds to MM:SS
     const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     
-    // Update the display
     id("time").textContent = formattedTime;
-    
   }
 
   /** ------------------------------ Helper Functions  ------------------------------ */
